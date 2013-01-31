@@ -1,7 +1,5 @@
 import sublime_plugin
-import os
 from os import path
-from PathToFileLanguages import PathToFileLanguages
 
 
 class Pathtofile(sublime_plugin.TextCommand):
@@ -12,15 +10,19 @@ class Pathtofile(sublime_plugin.TextCommand):
         view = self.view
         syntax = self.getsyntax(view)
         selections = view.sel()
+        window = view.window()
 
         for selection in selections:
-            try:
-                new_path = getattr(PathToFileLanguages(), syntax)(view, selection)
-            except AttributeError:
-                new_path = PathToFileLanguages().default(view, selection)
+            if selection.empty():
+                window.new_file()
+            else:
+                try:
+                    new_path = getattr(PathToFileLanguages(), syntax)(view, selection)
+                except AttributeError:
+                    new_path = PathToFileLanguages().default(view, selection)
 
-            self.checkdirectory(new_path)
-            view.window().open_file(new_path)
+                self.checkdirectory(new_path)
+                window.open_file(new_path)
 
     def getsyntax(self, view):
         """
