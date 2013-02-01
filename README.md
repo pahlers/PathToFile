@@ -7,5 +7,5 @@ The magic keybinding is:
 * `ctrl+n` for Windows/Linux and
 * `super+n` for OSX
 
-Note: an empty selection opens a new window, like the original `super+n` or `ctrl+n` keybinding did.
+Note: an empty selection opens a new window, like the original `super+n` or `ctrl+n` keybinding did.  
 Note: works also for ST3
