@@ -1,7 +1,7 @@
 from os import path
 
 
-class PathToFileLanguages:
+class PathToFileLanguages(object):
     """PathToFileLanguages
        Methods with language specific knowledge of paths
     """

@@ -1,8 +1,15 @@
 import sublime_plugin
+import os
 from os import path
+try:
+    # Python 3
+    from PathToFile.PathToFileLanguages import PathToFileLanguages
+except:
+    # Python 2
+    from PathToFileLanguages import PathToFileLanguages
 
 
-class Pathtofile(sublime_plugin.TextCommand):
+class PathToFile(sublime_plugin.TextCommand):
     def run(self, edit):
         """
         __init__ of this plugin
